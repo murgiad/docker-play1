@@ -18,12 +18,12 @@ FROM openjdk:8-jre-alpine
 
 EXPOSE 9000
 ENV PLAY_VERSION 1.4.3
-
 ENV HOME /play
+ENV PLAY_PATH $HOME/play-${PLAY_VERSION}
 
-COPY --from=builder /play-${PLAY_VERSION} $HOME/play-${PLAY_VERSION}
+COPY --from=builder /play-${PLAY_VERSION} $PLAY_PATH
 
 RUN apk --no-cache add python bash && \
-    ln -sf $HOME/play-${PLAY_VERSION}/play /usr/local/bin
+    ln -sf $PLAY_PATH/play /usr/local/bin
 
 WORKDIR $HOME
