@@ -14,7 +14,7 @@ COPY play-${PLAY_VERSION}.jar /play-${PLAY_VERSION}/framework/
 
 ### STAGE 2: Setup ###
 
-FROM openjdk:8-jre-alpine
+FROM openjdk:8-jdk-alpine
 
 EXPOSE 9000
 ENV PLAY_VERSION 1.4.3
